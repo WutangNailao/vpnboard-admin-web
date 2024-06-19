@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>http://localhost:3000</loc>
+<xhtml:link rel="alternate" hreflang="cs-CZ" href="http://localhost:3000/cs-CZ" />
+<xhtml:link rel="alternate" hreflang="de-DE" href="http://localhost:3000/de-DE" />
+<xhtml:link rel="alternate" hreflang="en-US" href="http://localhost:3000/en-US" />
+<xhtml:link rel="alternate" hreflang="es-ES" href="http://localhost:3000/es-ES" />
+<xhtml:link rel="alternate" hreflang="es-MX" href="http://localhost:3000/es-MX" />
+<xhtml:link rel="alternate" hreflang="fi-FI" href="http://localhost:3000/fi-FI" />
+<xhtml:link rel="alternate" hreflang="fr-FR" href="http://localhost:3000/fr-FR" />
+<xhtml:link rel="alternate" hreflang="hi-IN" href="http://localhost:3000/hi-IN" />
+<xhtml:link rel="alternate" hreflang="hu-HU" href="http://localhost:3000/hu-HU" />
+<xhtml:link rel="alternate" hreflang="ja-JP" href="http://localhost:3000/ja-JP" />
+<xhtml:link rel="alternate" hreflang="ko-KR" href="http://localhost:3000/ko-KR" />
+<xhtml:link rel="alternate" hreflang="no-NO" href="http://localhost:3000/no-NO" />
+<xhtml:link rel="alternate" hreflang="pl-PL" href="http://localhost:3000/pl-PL" />
+<xhtml:link rel="alternate" hreflang="pt-BR" href="http://localhost:3000/pt-BR" />
+<xhtml:link rel="alternate" hreflang="ro-RO" href="http://localhost:3000/ro-RO" />
+<xhtml:link rel="alternate" hreflang="ru-RU" href="http://localhost:3000/ru-RU" />
+<xhtml:link rel="alternate" hreflang="th-TH" href="http://localhost:3000/th-TH" />
+<xhtml:link rel="alternate" hreflang="tr-TR" href="http://localhost:3000/tr-TR" />
+<xhtml:link rel="alternate" hreflang="uk-UA" href="http://localhost:3000/uk-UA" />
+<xhtml:link rel="alternate" hreflang="vi-VN" href="http://localhost:3000/vi-VN" />
+<xhtml:link rel="alternate" hreflang="zh-CN" href="http://localhost:3000/zh-CN" />
+<xhtml:link rel="alternate" hreflang="zh-TW" href="http://localhost:3000/zh-TW" />
+<lastmod>2024-06-19T12:04:34.234Z</lastmod>
+</url>
+</urlset>

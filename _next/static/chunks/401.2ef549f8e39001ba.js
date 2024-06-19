@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[401],{401:function(e){e.exports=JSON.parse('{"deploy":"部署","deploy.description":"使用Vercel立即将您的Next.js网站部署到公共URL。","docs":"文档","docs.description":"查找有关Next.js功能和API的深入信息。","learn":"学习","learn.description":"参加带有测验的互动课程,了解Next.js。","templates":"模板","templates.description":"发现并部署样板Next.js项目。"}')}}]);
