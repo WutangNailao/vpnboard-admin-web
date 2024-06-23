@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[3418],{43418:function(h){h.exports=JSON.parse('{"request.error":{"401":"Kh\xf4ng được ph\xe9p","403":"Bị cấm","404":"Kh\xf4ng t\xecm thấy","500":"Lỗi m\xe1y chủ nội bộ","503":"Dịch vụ kh\xf4ng khả dụng","504":"Thời gian chờ cổng đ\xe3 hết","default":"Lỗi kh\xf4ng x\xe1c định"}}')}}]);
