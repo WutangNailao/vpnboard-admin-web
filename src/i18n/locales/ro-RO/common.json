@@ -1,4 +1,22 @@
 {
+  "data.table": {
+    "batchDelete": "Ștergere în lot",
+    "cancel": "Anulează",
+    "confirm": "Confirmă",
+    "confirmDelete": "Sigur dorești să ștergi aceste elemente?",
+    "deleteDescription": "Odată șterse, datele nu pot fi recuperate. Te rog să procedezi cu atenție.",
+    "goToFirstPage": "Mergi la prima pagină",
+    "goToLastPage": "Mergi la ultima pagină",
+    "goToNextPage": "Mergi la pagina următoare",
+    "goToPreviousPage": "Mergi la pagina anterioară",
+    "noResults": "Fără rezultate.",
+    "of": "din",
+    "page": "Pagina",
+    "selectAll": "Selectează tot",
+    "selectRow": "Selectează rândul",
+    "selectedItems": "Elemente selectate",
+    "totalItems": "Total elemente"
+  },
   "request.error": {
     "40000": "Eroare de client",
     "40001": "Validare client eșuată",

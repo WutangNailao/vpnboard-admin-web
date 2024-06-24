@@ -1,4 +1,22 @@
 {
+  "data.table": {
+    "batchDelete": "批量删除",
+    "cancel": "取消",
+    "confirm": "确认",
+    "confirmDelete": "确定要删除这些项目吗？",
+    "deleteDescription": "删除后，数据将无法恢复。请谨慎操作。",
+    "goToFirstPage": "转到第一页",
+    "goToLastPage": "转到最后一页",
+    "goToNextPage": "转到下一页",
+    "goToPreviousPage": "转到上一页",
+    "noResults": "无结果。",
+    "of": "的",
+    "page": "页",
+    "selectAll": "全选",
+    "selectRow": "选择行",
+    "selectedItems": "已选择项目",
+    "totalItems": "总项目数"
+  },
   "request.error": {
     "40000": "客户端错误",
     "40001": "客户端验证失败",

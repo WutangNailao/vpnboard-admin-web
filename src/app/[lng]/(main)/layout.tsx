@@ -113,7 +113,7 @@ export default function MainLayout({
     return (
       <div className='fixed left-0 top-0 z-50 flex size-full flex-col items-center justify-center'>
         <Icon icon='mdi:loading' className='size-12 animate-spin text-primary' />
-        <p className='ml-2 text-primary'>{t('loading')}</p>
+        <p className='ml-2 text-primary'>Loading...</p>
       </div>
     );
 

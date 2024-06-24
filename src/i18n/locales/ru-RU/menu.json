@@ -5,7 +5,6 @@
   "documentManagement": "Управление документами",
   "errorNoManager": "Ошибка запроса: отсутствует менеджер",
   "finance": "Финансы",
-  "loading": "Загрузка...",
   "logout": "Выйти",
   "nodeManagement": "Управление узлами",
   "orderManagement": "Управление заказами",

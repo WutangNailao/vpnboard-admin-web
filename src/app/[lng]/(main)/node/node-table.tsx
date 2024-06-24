@@ -120,7 +120,7 @@ export default function NodeTable() {
                 setLoading(true);
                 try {
                   await postAdminNodeUpdate({ ...row.original, id: row.original.id!, ...values });
-                  toast.success('创建成功');
+                  toast.success('更新成功');
                   refetch();
                   setLoading(false);
                   return true;

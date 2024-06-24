@@ -5,7 +5,6 @@
   "documentManagement": "การจัดการเอกสาร",
   "errorNoManager": "ข้อผิดพลาดในการร้องขอ: ไม่มีผู้จัดการ",
   "finance": "การเงิน",
-  "loading": "กำลังโหลด...",
   "logout": "ออกจากระบบ",
   "nodeManagement": "การจัดการโหนด",
   "orderManagement": "การจัดการคำสั่งซื้อ",

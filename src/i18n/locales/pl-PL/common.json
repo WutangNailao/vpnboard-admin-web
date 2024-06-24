@@ -1,4 +1,22 @@
 {
+  "data.table": {
+    "batchDelete": "Usuń partię",
+    "cancel": "Anuluj",
+    "confirm": "Potwierdź",
+    "confirmDelete": "Czy na pewno chcesz usunąć te elementy?",
+    "deleteDescription": "Po usunięciu danych nie będzie można ich odzyskać. Proszę postępować ostrożnie.",
+    "goToFirstPage": "Przejdź do pierwszej strony",
+    "goToLastPage": "Przejdź do ostatniej strony",
+    "goToNextPage": "Przejdź do następnej strony",
+    "goToPreviousPage": "Przejdź do poprzedniej strony",
+    "noResults": "Brak wyników.",
+    "of": "z",
+    "page": "Strona",
+    "selectAll": "Zaznacz wszystko",
+    "selectRow": "Zaznacz wiersz",
+    "selectedItems": "Wybrane elementy",
+    "totalItems": "Łącznie elementów"
+  },
   "request.error": {
     "40000": "Błąd klienta",
     "40001": "Walidacja klienta nie powiodła się",

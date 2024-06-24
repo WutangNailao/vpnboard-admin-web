@@ -5,7 +5,6 @@
   "documentManagement": "Gestion des documents",
   "errorNoManager": "Erreur de requête : Aucun gestionnaire",
   "finance": "Finance",
-  "loading": "Chargement...",
   "logout": "Déconnexion",
   "nodeManagement": "Gestion des nœuds",
   "orderManagement": "Gestion des commandes",

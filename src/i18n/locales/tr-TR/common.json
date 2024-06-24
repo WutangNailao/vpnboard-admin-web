@@ -1,4 +1,22 @@
 {
+  "data.table": {
+    "batchDelete": "Toplu sil",
+    "cancel": "İptal",
+    "confirm": "Onayla",
+    "confirmDelete": "Bu öğeleri silmek istediğinizden emin misiniz?",
+    "deleteDescription": "Silindiğinde, veriler kurtarılamaz. Lütfen dikkatli bir şekilde devam edin.",
+    "goToFirstPage": "İlk sayfaya git",
+    "goToLastPage": "Son sayfaya git",
+    "goToNextPage": "Sonraki sayfaya git",
+    "goToPreviousPage": "Önceki sayfaya git",
+    "noResults": "Sonuç bulunamadı.",
+    "of": " / ",
+    "page": "Sayfa",
+    "selectAll": "Hepsini Seç",
+    "selectRow": "Satırı Seç",
+    "selectedItems": "Seçilen öğeler",
+    "totalItems": "Toplam öğeler"
+  },
   "request.error": {
     "40000": "İstemci Hatası",
     "40001": "İstemci Doğrulaması Başarısız",

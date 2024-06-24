@@ -5,7 +5,6 @@
   "documentManagement": "문서 관리",
   "errorNoManager": "요청 오류: 관리자 없음",
   "finance": "금융",
-  "loading": "로딩 중...",
   "logout": "로그아웃",
   "nodeManagement": "노드 관리",
   "orderManagement": "주문 관리",

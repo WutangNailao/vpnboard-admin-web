@@ -1,4 +1,22 @@
 {
+  "data.table": {
+    "batchDelete": "Eräpoisto",
+    "cancel": "Peruuta",
+    "confirm": "Vahvista",
+    "confirmDelete": "Haluatko varmasti poistaa nämä kohteet?",
+    "deleteDescription": "Kun kohteet on poistettu, niitä ei voi palauttaa. Jatka varovasti.",
+    "goToFirstPage": "Siirry ensimmäiselle sivulle",
+    "goToLastPage": "Siirry viimeiselle sivulle",
+    "goToNextPage": "Siirry seuraavalle sivulle",
+    "goToPreviousPage": "Siirry edelliselle sivulle",
+    "noResults": "Ei tuloksia.",
+    "of": "of",
+    "page": "Sivu",
+    "selectAll": "Valitse kaikki",
+    "selectRow": "Valitse rivi",
+    "selectedItems": "Valitut kohteet",
+    "totalItems": "Yhteensä kohteita"
+  },
   "request.error": {
     "40000": "Asiakasvirhe",
     "40001": "Asiakkaan validointi epäonnistui",

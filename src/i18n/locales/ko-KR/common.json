@@ -1,4 +1,22 @@
 {
+  "data.table": {
+    "batchDelete": "일괄 삭제",
+    "cancel": "취소",
+    "confirm": "확인",
+    "confirmDelete": "이 항목을 삭제하시겠습니까?",
+    "deleteDescription": "한 번 삭제하면 데이터를 복구할 수 없습니다. 주의해서 진행해주세요.",
+    "goToFirstPage": "첫 페이지로 이동",
+    "goToLastPage": "마지막 페이지로 이동",
+    "goToNextPage": "다음 페이지로 이동",
+    "goToPreviousPage": "이전 페이지로 이동",
+    "noResults": "결과 없음.",
+    "of": "의",
+    "page": "페이지",
+    "selectAll": "모두 선택",
+    "selectRow": "행 선택",
+    "selectedItems": "선택된 항목",
+    "totalItems": "총 항목"
+  },
   "request.error": {
     "40000": "클라이언트 오류",
     "40001": "클라이언트 유효성 검사 실패",

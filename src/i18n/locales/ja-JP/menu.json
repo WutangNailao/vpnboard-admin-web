@@ -5,7 +5,6 @@
   "documentManagement": "ドキュメント管理",
   "errorNoManager": "リクエストエラー：マネージャーがいません",
   "finance": "ファイナンス",
-  "loading": "読み込み中...",
   "logout": "ログアウト",
   "nodeManagement": "ノード管理",
   "orderManagement": "注文管理",

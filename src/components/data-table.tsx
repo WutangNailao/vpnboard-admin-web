@@ -1,6 +1,8 @@
 'use client';
 
 import { ReactNode, useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/i18n';
 import {
   ChevronLeftIcon,
   ChevronRightIcon,
@@ -45,6 +47,9 @@ export function DataTable<TData, TValue>({
   pagination = {},
   operations = {},
 }: DataTableProps<TData, TValue>) {
+  const { lng } = useParams<{ lng: string }>();
+  const { t } = useTranslation(lng, 'common');
+
   const { page = 1, size = 50, total = 0, onChange } = pagination;
   const { remove } = operations;
   const [rowSelection, setRowSelection] = useState({});
@@ -60,14 +65,14 @@ export function DataTable<TData, TValue>({
               (table.getIsSomePageRowsSelected() && 'indeterminate')
             }
             onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-            aria-label='Select all'
+            aria-label={t('data.table.selectAll')}
           />
         ),
         cell: ({ row }) => (
           <Checkbox
             checked={row.getIsSelected()}
             onCheckedChange={(value) => row.toggleSelected(!!value)}
-            aria-label='Select row'
+            aria-label={t('data.table.selectRow')}
           />
         ),
         enableSorting: false,
@@ -93,11 +98,15 @@ export function DataTable<TData, TValue>({
       {table.getFilteredSelectedRowModel().rows.length > 0 && (
         <Alert>
           <AlertTitle className='mb-0 flex items-center justify-between'>
-            <span>已选择 {table.getFilteredSelectedRowModel().rows.length} 项</span>
+            <span>
+              {t('data.table.selectedItems', {
+                count: table.getFilteredSelectedRowModel().rows.length,
+              })}
+            </span>
             <DeleteButton
-              trigger='批量删除'
-              title='你确定要删除这些选项吗?'
-              description='删除后数据将无法恢复，请谨慎操作'
+              trigger={t('data.table.batchDelete')}
+              title={t('data.table.confirmDelete')}
+              description={t('data.table.deleteDescription')}
               onConfirm={() => {
                 remove?.(
                   Object.keys(rowSelection).map((key) => {
@@ -105,8 +114,8 @@ export function DataTable<TData, TValue>({
                   }),
                 );
               }}
-              onCancelText='取消'
-              onConfirmText='确认'
+              onCancelText={t('data.table.cancel')}
+              onConfirmText={t('data.table.confirm')}
             />
           </AlertTitle>
         </Alert>
@@ -142,7 +151,7 @@ export function DataTable<TData, TValue>({
             ) : (
               <TableRow>
                 <TableCell colSpan={columns.length} className='h-24 text-center'>
-                  No results.
+                  {t('data.table.noResults')}
                 </TableCell>
               </TableRow>
             )}
@@ -151,11 +160,14 @@ export function DataTable<TData, TValue>({
         <ScrollBar orientation='horizontal' />
       </ScrollArea>
       <div className='mt-4 flex items-center justify-between px-2'>
-        <div className='text-sm text-muted-foreground'>共 {total} 项</div>
+        <div className='text-sm text-muted-foreground'>
+          {t('data.table.totalItems', { count: total })}
+        </div>
         {table.getPageCount() > 1 && (
           <>
             <div className='text-sm text-muted-foreground'>
-              第 {table.getState().pagination.pageIndex + 1} 页 (共 {table.getPageCount()} 页)
+              {t('data.table.page')} {table.getState().pagination.pageIndex + 1}{' '}
+              {t('data.table.of')} {table.getPageCount()}
             </div>
             <div className='flex items-center space-x-6 lg:space-x-8'>
               <div className='flex items-center space-x-2'>
@@ -167,7 +179,7 @@ export function DataTable<TData, TValue>({
                   }}
                   disabled={!table.getCanPreviousPage()}
                 >
-                  <span className='sr-only'>Go to first page</span>
+                  <span className='sr-only'>{t('data.table.goToFirstPage')}</span>
                   <DoubleArrowLeftIcon className='size-4' />
                 </Button>
                 <Button
@@ -178,7 +190,7 @@ export function DataTable<TData, TValue>({
                   }}
                   disabled={!table.getCanPreviousPage()}
                 >
-                  <span className='sr-only'>Go to previous page</span>
+                  <span className='sr-only'>{t('data.table.goToPreviousPage')}</span>
                   <ChevronLeftIcon className='size-4' />
                 </Button>
                 <Button
@@ -189,7 +201,7 @@ export function DataTable<TData, TValue>({
                   }}
                   disabled={!table.getCanNextPage()}
                 >
-                  <span className='sr-only'>Go to next page</span>
+                  <span className='sr-only'>{t('data.table.goToNextPage')}</span>
                   <ChevronRightIcon className='size-4' />
                 </Button>
                 <Button
@@ -200,7 +212,7 @@ export function DataTable<TData, TValue>({
                   }}
                   disabled={!table.getCanNextPage()}
                 >
-                  <span className='sr-only'>Go to last page</span>
+                  <span className='sr-only'>{t('data.table.goToLastPage')}</span>
                   <DoubleArrowRightIcon className='size-4' />
                 </Button>
               </div>
