@@ -1,4 +1,3 @@
-````markdown
 <a name="readme-top"></a>
 
 <div align="center">
@@ -12,9 +11,9 @@
 [English](./README.md)
 ·
 [简体中文](./README.zh-CN.md)
-·
+・
 繁體中文
-·
+・
 [變更日誌](./CHANGELOG.md)
 ·
 [回報問題][issues-link]
@@ -41,11 +40,11 @@
 
 #### 目錄
 
-- [🌲目錄結構](#directory-structure)
-- [⌨️ 本地開發](#️-local-development)
-- [🤝 貢獻](#-contributing)
-- [📦 架構](#-architecture)
-- [📝 授權許可](#-license)
+- [🌲目錄結構](#目錄結構)
+- [⌨️ 本地開發](#️-本地開發)
+- [🤝 貢獻](#-貢獻)
+- [📦 架構](#-架構)
+- [📝 授權許可](#-授權許可)
 
 ####
 
@@ -79,7 +78,6 @@ pnpm install
 # 運行開發服務器
 pnpm dev
 ```
-````
 
 用瀏覽器打開 <http://localhost:3000> 查看結果。
 
@@ -112,11 +110,8 @@ pnpm dev
 
 <!-- LINK GROUP -->
 
-[back-to-top]: https://img.shields.io/badge/-BACK_TO_TOP-151515?style=flat-square
 [codespaces-link]: https://codespaces.new/iceberg-Lab/vpnboard-admin-web
 [codespaces-shield]: https://github.com/codespaces/badge.svg
-[contributors-contrib]: https://contrib.rocks/image?repo=iceberg-Lab/vpnboard-admin-web
-[contributors-url]: https://github.com/iceberg-Lab/vpnboard-admin-web/graphs/contributors
 [github-action-release-link]: https://github.com/iceberg-Lab/vpnboard-admin-web/actions/workflows/release.yml
 [github-action-release-shield]: https://img.shields.io/github/actions/workflow/status/iceberg-Lab/vpnboard-admin-web/release.yml?label=release&labelColor=black&logo=githubactions&logoColor=white&style=flat-square
 [github-contributors-link]: https://github.com/iceberg-Lab/vpnboard-admin-web/graphs/contributors
@@ -135,6 +130,3 @@ pnpm dev
 [github-stars-shield]: https://img.shields.io/github/stars/iceberg-Lab/vpnboard-admin-web?color=ffcb47&labelColor=black&style=flat-square
 [gitpod-link]: https://gitpod.io/#https://github.com/iceberg-Lab/vpnboard-admin-web
 [issues-link]: https://github.com/iceberg-Lab/vpnboard-admin-web/issues/new/choose
-[pr-welcome-link]: https://github.com/iceberg-Lab/vpnboard-admin-web/pulls
-[pr-welcome-shield]: https://img.shields.io/badge/🤯_pr_welcome-%E2%86%92-ffcb47?labelColor=black&style=for-the-badge
-[profile-link]: https://github.com/iceberg-Lab
