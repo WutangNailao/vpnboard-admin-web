@@ -1,54 +1,94 @@
 'use client';
 
+import { useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/i18n';
+import { postAdminUserCreate, postAdminUserList } from '@/services/api/admin';
+import { useQuery } from '@tanstack/react-query';
 import { ColumnDef } from '@tanstack/react-table';
-import { formatDate } from 'date-fns';
-import { Button } from '@/components/ui/button';
+import { format } from 'date-fns';
+import { toast } from 'sonner';
 import { Switch } from '@/components/ui/switch';
 import { DataTable } from '@/components/data-table';
 import DeleteButton from '@/components/delete-button';
 import UserForm from './user-form';
 
 export default function Page() {
-  const columns: ColumnDef<any>[] = [
+  const { lng } = useParams<{ lng: string }>();
+  const { t } = useTranslation(lng, 'user');
+  const [loading, setLoading] = useState(false);
+
+  const [params, setParams] = useState<API.ListUserRequest>({
+    page: 1,
+    size: 50,
+  });
+
+  const { data, refetch } = useQuery<API.ListUserResponse>({
+    queryKey: ['postAdminUserList', params],
+    queryFn: async () => {
+      const { data } = await postAdminUserList(params);
+      return data.data;
+    },
+  });
+
+  const columns: ColumnDef<API.User>[] = [
     {
       accessorKey: 'enable',
-      header: '启用',
+      header: t('enable'),
       cell: ({ row }) => {
-        return <Switch checked={row.getValue('enabled')} />;
+        return <Switch checked={row.getValue('enable')} />;
       },
     },
     {
       accessorKey: 'user_name',
-      header: '用户名称',
+      header: t('userName'),
     },
     {
-      accessorKey: '',
-      header: '余额',
-    },
-    {
-      accessorKey: 'commission',
-      header: '佣金',
+      accessorKey: 'balance',
+      header: t('balance'),
     },
     {
       accessorKey: 'created_at',
-      header: '注册时间',
-      cell: ({ row }) => formatDate(row.getValue('created_at'), 'yyyy-MM-dd HH:mm:ss'),
+      header: t('createdAt'),
+      cell: ({ row }) => format(row.getValue('created_at'), 'yyyy-MM-dd HH:mm:ss'),
     },
     {
       id: 'actions',
       accessorKey: 'id',
-      header: () => <div className='text-right'>操作</div>,
+      header: () => <div className='text-right'>{t('actions')}</div>,
       cell: ({ row }) => {
         return (
           <div className='flex justify-end gap-2'>
-            <Button>编辑</Button>
+            <UserForm<API.User>
+              trigger={t('edit')}
+              title={t('editUser')}
+              loading={loading}
+              initialValues={row.original}
+              onSubmit={async (values) => {
+                setLoading(true);
+                try {
+                  // TODO: Update API
+                  toast.success(t('updateSuccess'));
+                  refetch();
+                  setLoading(false);
+                  return true;
+                } catch (error) {
+                  setLoading(false);
+                  return false;
+                }
+              }}
+            />
             <DeleteButton
-              trigger='删除'
-              title='你确定要删除吗?'
-              description='删除后数据将无法恢复，请谨慎操作'
-              onConfirm={async () => {}}
-              onCancelText='取消'
-              onConfirmText='确认'
+              trigger={t('delete')}
+              title={t('confirmDelete')}
+              description={t('deleteDescription')}
+              onConfirm={async () => {
+                // TODO: Remove API
+                toast.success(t('deleteSuccess'));
+                refetch();
+              }}
+              onCancelText={t('cancel')}
+              onConfirmText={t('confirm')}
             />
           </div>
         );
@@ -60,25 +100,49 @@ export default function Page() {
     <DataTable
       header={
         <div className='flex items-center justify-between'>
-          <h1>用户列表</h1>
-          <UserForm
-            trigger='新建'
-            title='新建用户'
-            onSubmit={async () => {
-              return true;
+          <h1>{t('userList')}</h1>
+          <UserForm<API.CreateUserRequest>
+            trigger={t('create')}
+            title={t('createUser')}
+            loading={loading}
+            onSubmit={async (values) => {
+              setLoading(true);
+              try {
+                await postAdminUserCreate(values);
+                toast.success(t('createSuccess'));
+                refetch();
+                setLoading(false);
+                return true;
+              } catch (error) {
+                setLoading(false);
+                return false;
+              }
             }}
           />
         </div>
       }
       columns={columns}
-      data={[]}
+      data={data?.list || []}
       pagination={{
-        page: 1,
-        size: 0,
-        total: 0,
+        page: params.page,
+        size: params.size,
+        total: data?.total,
+        onChange: (page, size) => {
+          setParams({
+            ...params,
+            page,
+            size,
+          });
+        },
       }}
       operations={{
-        remove: async (rowSelection) => {},
+        remove: async (rowSelection) => {
+          rowSelection.forEach(async (element) => {
+            // TODO: Remove API
+          });
+          toast.success(t('deleteSuccess'));
+          refetch();
+        },
       }}
     />
   );

@@ -1,4 +1,8 @@
+'use client';
+
 import { useEffect, useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/i18n';
 import { postAdminProductList } from '@/services/api/admin';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Icon } from '@iconify/react';
@@ -33,12 +37,6 @@ import {
 } from '@/components/ui/sheet';
 import { Switch } from '@/components/ui/switch';
 
-const formSchema = z.object({
-  user_name: z.string().min(2, {
-    message: 'name must be at least 2 characters.',
-  }),
-});
-
 interface NoticeFormProps<T> {
   onSubmit: (data: T) => Promise<boolean> | boolean;
   initialValues?: T;
@@ -54,7 +52,19 @@ export default function UserForm<T extends Record<string, any>>({
   trigger,
   title,
 }: NoticeFormProps<T>) {
+  const { lng } = useParams<{ lng: string }>();
+  const { t } = useTranslation(lng, 'user');
+
   const [open, setOpen] = useState(false);
+  const formSchema = z.object({
+    user_name: z.string().email(t('user.invalidEmailFormat')),
+    password: z.string().optional(),
+    product_id: z.number().optional(),
+    duration: z.number().optional(),
+    referer_username: z.string().email(t('user.invalidEmailFormat')).optional(),
+    refer_code: z.string().optional(),
+    is_manager: z.boolean().optional(),
+  });
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -104,9 +114,9 @@ export default function UserForm<T extends Record<string, any>>({
                 name='user_name'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>用户邮箱</FormLabel>
+                    <FormLabel>{t('user.userEmail')}</FormLabel>
                     <FormControl>
-                      <Input placeholder='请输入用户邮箱' {...field} />
+                      <Input placeholder={t('user.userEmailPlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -117,9 +127,9 @@ export default function UserForm<T extends Record<string, any>>({
                 name='password'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>密码</FormLabel>
+                    <FormLabel>{t('user.password')}</FormLabel>
                     <FormControl>
-                      <Input placeholder='密码留空则与邮箱相同' {...field} />
+                      <Input placeholder={t('user.passwordPlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -127,10 +137,10 @@ export default function UserForm<T extends Record<string, any>>({
               />
               <FormField
                 control={form.control}
-                name='product'
+                name='product_id'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>分配商品</FormLabel>
+                    <FormLabel>{t('user.assignProduct')}</FormLabel>
                     <FormControl>
                       <Select
                         onValueChange={(value) => {
@@ -140,7 +150,7 @@ export default function UserForm<T extends Record<string, any>>({
                       >
                         <FormControl>
                           <SelectTrigger>
-                            <SelectValue placeholder='请选择商品' />
+                            <SelectValue placeholder={t('user.productPlaceholder')} />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
@@ -158,13 +168,13 @@ export default function UserForm<T extends Record<string, any>>({
               />
               <FormField
                 control={form.control}
-                name='month'
+                name='duration'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>分配月数</FormLabel>
+                    <FormLabel>{t('user.duration')}</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder='请输入月数'
+                        placeholder={t('user.durationPlaceholder')}
                         {...field}
                         type='number'
                         value={field.value ? Number(field.value) : undefined}
@@ -179,12 +189,12 @@ export default function UserForm<T extends Record<string, any>>({
               />
               <FormField
                 control={form.control}
-                name='invitation_email'
+                name='referer_username'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>邀请人邮箱</FormLabel>
+                    <FormLabel>{t('user.refererEmail')}</FormLabel>
                     <FormControl>
-                      <Input placeholder='请输入邀请人邮箱' {...field} />
+                      <Input placeholder={t('user.refererEmailPlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -192,12 +202,12 @@ export default function UserForm<T extends Record<string, any>>({
               />
               <FormField
                 control={form.control}
-                name='invitation_code'
+                name='refer_code'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>邀请码</FormLabel>
+                    <FormLabel>{t('user.inviteCode')}</FormLabel>
                     <FormControl>
-                      <Input placeholder='请输入邀请码(留空则自动生成)' {...field} />
+                      <Input placeholder={t('user.inviteCodePlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -208,10 +218,10 @@ export default function UserForm<T extends Record<string, any>>({
                 name='balance'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>余额</FormLabel>
+                    <FormLabel>{t('user.balance')}</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder='余额'
+                        placeholder={t('user.balancePlaceholder')}
                         {...field}
                         type='number'
                         value={field.value ? Number(field.value) : undefined}
@@ -229,7 +239,7 @@ export default function UserForm<T extends Record<string, any>>({
                 name='is_manager'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>管理员</FormLabel>
+                    <FormLabel>{t('user.manager')}</FormLabel>
                     <FormControl>
                       <div className='pt-2'>
                         <Switch checked={!!field.value} onCheckedChange={field.onChange} />
@@ -250,10 +260,11 @@ export default function UserForm<T extends Record<string, any>>({
               setOpen(false);
             }}
           >
-            取消
+            {t('user.cancel')}
           </Button>
           <Button disabled={loading} onClick={form.handleSubmit(handleSubmit)}>
-            {loading && <Icon icon='mdi:loading' className='mr-2 animate-spin' />} 确定
+            {loading && <Icon icon='mdi:loading' className='mr-2 animate-spin' />}{' '}
+            {t('user.confirm')}
           </Button>
         </SheetFooter>
       </SheetContent>

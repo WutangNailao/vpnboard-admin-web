@@ -15,7 +15,6 @@
   "form": {
     "cancel": "取消",
     "category": "类别",
-    "categoryPlaceholder": "请输入一个类别，它将自动分组",
     "confirm": "确认",
     "content": "内容",
     "title": "标题",

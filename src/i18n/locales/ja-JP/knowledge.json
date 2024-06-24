@@ -15,7 +15,6 @@
   "form": {
     "cancel": "キャンセル",
     "category": "カテゴリー",
-    "categoryPlaceholder": "カテゴリーを入力してください。自動的にグループ化されます。",
     "confirm": "確認",
     "content": "コンテンツ",
     "title": "タイトル",
