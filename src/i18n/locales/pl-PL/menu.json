@@ -1,0 +1,22 @@
+{
+  "announcementManagement": "Zarządzanie ogłoszeniami",
+  "couponManagement": "Zarządzanie kuponami",
+  "dashboard": "Panel",
+  "documentManagement": "Zarządzanie dokumentami",
+  "errorNoManager": "Błąd żądania: Brak menedżera",
+  "finance": "Finanse",
+  "loading": "Ładowanie...",
+  "logout": "Wyloguj",
+  "nodeManagement": "Zarządzanie węzłami",
+  "orderManagement": "Zarządzanie zamówieniami",
+  "paymentConfig": "Konfiguracja płatności",
+  "productManagement": "Zarządzanie produktami",
+  "server": "Serwer",
+  "settings": "Ustawienia",
+  "systemConfig": "Konfiguracja systemu",
+  "ticketManagement": "Zarządzanie zgłoszeniami",
+  "toggleNavigationMenu": "Przełącz menu nawigacyjne",
+  "toggleUserMenu": "Przełącz menu użytkownika",
+  "user": "Użytkownik",
+  "userManagement": "Zarządzanie użytkownikami"
+}
