@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[5297],{95297:function(s){s.exports=JSON.parse('{"description":"立即开始激动人心的互联网体验","email":"邮箱","login":"登录","password":"密码","remember_password":"记住密码","success":"登录成功"}')}}]);

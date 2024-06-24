@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2286],{42286:function(e){e.exports=JSON.parse('{"tabs":{"email":"อีเมล","invite":"เชิญ","node":"โหนด","register":"ลงทะเบียน","site":"เว็บไซต์","subscription":"การสมัครสมาชิก","telegram":"เทเลแกรม","tos":"ข้อกำหนดและเงื่อนไขการให้บริการ","verify":"ตรวจสอบ"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1421],{61421:function(e){e.exports=JSON.parse('{"tabs":{"email":"Correo electr\xf3nico","invite":"Invitar","node":"Nodo","register":"Registro","site":"Sitio","subscription":"Suscripci\xf3n","telegram":"Telegram","tos":"T\xe9rminos de servicio","verify":"Verificar"}}')}}]);

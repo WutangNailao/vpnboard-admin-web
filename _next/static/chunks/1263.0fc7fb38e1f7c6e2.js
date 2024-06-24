@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1263],{21263:function(e){e.exports=JSON.parse('{"tabs":{"email":"电子邮件","invite":"邀请","node":"节点","register":"注册","site":"网站","subscription":"订阅","telegram":"Telegram","tos":"服务条款","verify":"验证"}}')}}]);

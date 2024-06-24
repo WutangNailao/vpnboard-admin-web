@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[7622],{7622:function(e){e.exports=JSON.parse('{"tabs":{"email":"Електронна пошта","invite":"Запросити","node":"Вузол","register":"Реєстрація","site":"Сайт","subscription":"Підписка","telegram":"Телеграм","tos":"Умови надання послуг","verify":"Перевірка"}}')}}]);

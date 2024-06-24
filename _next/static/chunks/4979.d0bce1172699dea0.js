@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[4979],{64979:function(e){e.exports=JSON.parse('{"description":"Heyecan verici İnternet deneyimine hemen başlayın","email":"E-posta","login":"Giriş","password":"Şifre","remember_password":"Şifreyi Hatırla","success":"giriş başarılı"}')}}]);

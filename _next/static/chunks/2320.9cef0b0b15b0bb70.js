@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2320],{72320:function(s){s.exports=JSON.parse('{"saveSuccess":"儲存成功"}')}}]);

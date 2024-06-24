@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[9138],{49138:function(e){e.exports=JSON.parse('{"tabs":{"email":"Email","invite":"Mời","node":"Node","register":"Đăng k\xfd","site":"Trang web","subscription":"Đăng k\xfd","telegram":"Telegram","tos":"Điều khoản Dịch vụ","verify":"X\xe1c minh"}}')}}]);

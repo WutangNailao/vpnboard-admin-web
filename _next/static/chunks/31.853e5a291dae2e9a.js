@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[31],{80031:function(e){e.exports=JSON.parse('{"tabs":{"email":"Email","invite":"Invite","node":"Node","register":"Register","site":"Site","subscription":"Subscription","telegram":"Telegram","tos":"Terms of Service","verify":"Verify"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[5873],{75873:function(e){e.exports=JSON.parse('{"tabs":{"email":"E-post","invite":"Inviter","node":"Node","register":"Registrer","site":"Nettsted","subscription":"Abonnement","telegram":"Telegram","tos":"Vilk\xe5r for bruk","verify":"Verifiser"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1],{20001:function(s){s.exports=JSON.parse('{"description":"Почніть захоплюючий Інтернет-досвід негайно","email":"Електронна пошта","login":"Увійти","password":"Пароль","remember_password":"Запам\'ятати пароль","success":"Успішний вхід"}')}}]);

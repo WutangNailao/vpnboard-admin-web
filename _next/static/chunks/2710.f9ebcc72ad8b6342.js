@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2710],{22710:function(e){e.exports=JSON.parse('{"saveSuccess":"Lagring vellykket"}')}}]);

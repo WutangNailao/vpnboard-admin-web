@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[7997],{7997:function(n){n.exports=JSON.parse('{"description":"Bắt đầu trải nghiệm Internet hấp dẫn ngay lập tức","email":"Email","login":"Đăng nhập","password":"Mật khẩu","remember_password":"Nhớ mật khẩu","success":"Đăng nhập th\xe0nh c\xf4ng"}')}}]);

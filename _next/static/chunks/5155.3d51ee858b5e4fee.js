@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[5155],{65155:function(e){e.exports=JSON.parse('{"description":"\xcencepeți imediat experiența captivantă pe internet","email":"Email","login":"Autentificare","password":"Parolă","remember_password":"Ține-mă minte","success":"Autentificare reușită"}')}}]);

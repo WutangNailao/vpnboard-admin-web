@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2803],{32803:function(e){e.exports=JSON.parse('{"tabs":{"email":"電子郵件","invite":"邀請","node":"節點","register":"註冊","site":"網站","subscription":"訂閱","telegram":"Telegram","tos":"服務條款","verify":"驗證"}}')}}]);

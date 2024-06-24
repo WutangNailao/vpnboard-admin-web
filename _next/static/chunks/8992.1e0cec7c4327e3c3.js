@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[8992],{48992:function(e){e.exports=JSON.parse('{"description":"Start den spennende internettopplevelsen umiddelbart","email":"E-post","login":"Logg inn","password":"Passord","remember_password":"Husk passord","success":"Innlogging vellykket"}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[4243],{84243:function(e){e.exports=JSON.parse('{"tabs":{"email":"メール","invite":"招待","node":"ノード","register":"登録","site":"サイト","subscription":"サブスクリプション","telegram":"テレグラム","tos":"利用規約","verify":"確認"}}')}}]);

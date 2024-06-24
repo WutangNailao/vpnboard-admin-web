@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[5724],{35724:function(e){e.exports=JSON.parse('{"description":"Comienza la emocionante experiencia en Internet de inmediato","email":"Correo electr\xf3nico","login":"Iniciar sesi\xf3n","password":"Contrase\xf1a","remember_password":"Recordar contrase\xf1a","success":"Inicio de sesi\xf3n exitoso"}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[2266],{92266:function(s){s.exports=JSON.parse('{"description":"Начните захватывающий интернет-опыт немедленно","email":"Электронная почта","login":"Войти","password":"Пароль","remember_password":"Запомнить пароль","success":"Вход успешно выполнен"}')}}]);

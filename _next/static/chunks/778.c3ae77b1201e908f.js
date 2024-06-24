@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[778],{90778:function(e){e.exports=JSON.parse('{"tabs":{"email":"Email","invite":"Megh\xedv\xe1s","node":"Csom\xf3pont","register":"Regisztr\xe1ci\xf3","site":"Oldal","subscription":"Előfizet\xe9s","telegram":"Telegram","tos":"Felhaszn\xe1l\xe1si felt\xe9telek","verify":"Ellenőrz\xe9s"}}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[8285],{98285:function(s){s.exports=JSON.parse('{"description":"เริ่มประสบการณ์อินเทอร์เน็ตที่น่าตื่นเต้นทันที","email":"อีเมล","login":"เข้าสู่ระบบ","password":"รหัสผ่าน","remember_password":"จดจำรหัสผ่าน","success":"เข้าสู่ระบบสำเร็จ"}')}}]);
