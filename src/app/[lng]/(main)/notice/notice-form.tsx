@@ -24,7 +24,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet';
-import { Textarea } from '@/components/ui/textarea';
+import Markdown from '@/components/markdown';
+import MarkdownEditor from '@/components/markdown-editor';
 
 const formSchema = z.object({
   title: z.string(),
@@ -79,7 +80,7 @@ export default function NoticeForm<T extends Record<string, any>>({
           {trigger}
         </Button>
       </SheetTrigger>
-      <SheetContent>
+      <SheetContent className='sm:max-w-[100vw]'>
         <SheetHeader>
           <SheetTitle>{title}</SheetTitle>
         </SheetHeader>
@@ -99,6 +100,7 @@ export default function NoticeForm<T extends Record<string, any>>({
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={form.control}
                 name='content'
@@ -106,7 +108,12 @@ export default function NoticeForm<T extends Record<string, any>>({
                   <FormItem>
                     <FormLabel>{t('form.content')}</FormLabel>
                     <FormControl>
-                      <Textarea placeholder={t('form.contentPlaceholder')} {...field} />
+                      <MarkdownEditor
+                        style={{ height: '500px' }}
+                        renderHTML={(text) => <Markdown>{text}</Markdown>}
+                        defaultValue={field.value}
+                        onChange={({ text }) => field.onChange(text)}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>

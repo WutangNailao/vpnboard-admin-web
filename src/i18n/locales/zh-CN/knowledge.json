@@ -11,7 +11,7 @@
   "deleteDescription": "一旦删除，数据将无法恢复。请谨慎操作。",
   "deleteSuccess": "删除成功",
   "edit": "编辑",
-  "editKnowledge": "编辑知识",
+  "editKnowledge": "编辑文档",
   "form": {
     "cancel": "取消",
     "category": "类别",
