@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { postAdminProductList } from '@/services/api/admin';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/i18n';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Icon } from '@iconify/react';
-import { useQuery } from '@tanstack/react-query';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { Button } from '@/components/ui/button';
@@ -28,12 +28,12 @@ import Markdown from '@/components/markdown';
 import MarkdownEditor from '@/components/markdown-editor';
 
 const formSchema = z.object({
-  user_name: z.string().min(2, {
-    message: 'name must be at least 2 characters.',
-  }),
+  title: z.string(),
+  category: z.string().optional(),
+  content: z.string().optional(),
 });
 
-interface NoticeFormProps<T> {
+interface KnowledgeFormProps<T> {
   onSubmit: (data: T) => Promise<boolean> | boolean;
   initialValues?: T;
   loading?: boolean;
@@ -41,13 +41,16 @@ interface NoticeFormProps<T> {
   title: string;
 }
 
-export default function NoticeForm<T extends Record<string, any>>({
+export default function KnowledgeForm<T extends Record<string, any>>({
   onSubmit,
   initialValues,
   loading,
   trigger,
   title,
-}: NoticeFormProps<T>) {
+}: KnowledgeFormProps<T>) {
+  const { lng } = useParams<{ lng: string }>();
+  const { t } = useTranslation(lng, 'knowledge');
+
   const [open, setOpen] = useState(false);
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -64,14 +67,6 @@ export default function NoticeForm<T extends Record<string, any>>({
     const bool = await onSubmit(data as T);
     if (bool) setOpen(false);
   }
-
-  const { data } = useQuery({
-    queryKey: ['postAdminProductList'],
-    queryFn: async () => {
-      const { data } = await postAdminProductList();
-      return data.data;
-    },
-  });
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -95,12 +90,12 @@ export default function NoticeForm<T extends Record<string, any>>({
             <form onSubmit={form.handleSubmit(handleSubmit)} className='space-y-4 px-6 pt-4'>
               <FormField
                 control={form.control}
-                name='user_name'
+                name='title'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>标题</FormLabel>
+                    <FormLabel>{t('form.title')}</FormLabel>
                     <FormControl>
-                      <Input placeholder='请输入' {...field} />
+                      <Input placeholder={t('form.titlePlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -111,9 +106,9 @@ export default function NoticeForm<T extends Record<string, any>>({
                 name='category'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>分类</FormLabel>
+                    <FormLabel>{t('form.category')}</FormLabel>
                     <FormControl>
-                      <Input placeholder='请输入分类，分类将自动归集' {...field} />
+                      <Input placeholder={t('form.categoryPlaceholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -121,10 +116,10 @@ export default function NoticeForm<T extends Record<string, any>>({
               />
               <FormField
                 control={form.control}
-                name='context'
+                name='content'
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>公告内容</FormLabel>
+                    <FormLabel>{t('form.content')}</FormLabel>
                     <FormControl>
                       <MarkdownEditor
                         style={{ height: '500px' }}
@@ -148,10 +143,11 @@ export default function NoticeForm<T extends Record<string, any>>({
               setOpen(false);
             }}
           >
-            取消
+            {t('form.cancel')}
           </Button>
           <Button disabled={loading} onClick={form.handleSubmit(handleSubmit)}>
-            {loading && <Icon icon='mdi:loading' className='mr-2 animate-spin' />} 确定
+            {loading && <Icon icon='mdi:loading' className='mr-2 animate-spin' />}{' '}
+            {t('form.confirm')}
           </Button>
         </SheetFooter>
       </SheetContent>

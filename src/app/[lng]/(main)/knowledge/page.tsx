@@ -1,50 +1,117 @@
 'use client';
 
+import { useState } from 'react';
+import { useParams } from 'next/navigation';
+import { useTranslation } from '@/i18n';
+import {
+  postAdminKnowledgeCreate,
+  postAdminKnowledgeList,
+  postAdminKnowledgeOpenApiDelete,
+  postAdminKnowledgeUpdate,
+} from '@/services/api/admin';
+import { useQuery } from '@tanstack/react-query';
 import { ColumnDef } from '@tanstack/react-table';
-import { formatDate } from 'date-fns';
-import { Button } from '@/components/ui/button';
+import { format } from 'date-fns';
+import { toast } from 'sonner';
 import { Switch } from '@/components/ui/switch';
 import { DataTable } from '@/components/data-table';
 import DeleteButton from '@/components/delete-button';
-import NoticeForm from './notice-form';
+import KnowledgeForm from './knowledge-form';
 
 export default function Page() {
+  const { lng } = useParams<{ lng: string }>();
+  const { t } = useTranslation(lng, 'knowledge');
+  const [loading, setLoading] = useState(false);
+
+  const [params, setParams] = useState<API.ListKnowledgeRequest>({
+    page: 1,
+    size: 50,
+  });
+
+  const { data, refetch } = useQuery<API.ListKnowledgeResponse>({
+    queryKey: ['postAdminKnowledgeList', params],
+    queryFn: async () => {
+      const { data } = await postAdminKnowledgeList(params);
+      return data.data;
+    },
+  });
+
   const columns: ColumnDef<any>[] = [
     {
       accessorKey: 'enable',
-      header: '显示',
+      header: t('show'),
       cell: ({ row }) => {
-        return <Switch checked={row.getValue('enabled')} />;
+        return (
+          <Switch
+            defaultChecked={row.getValue('enable')}
+            onCheckedChange={async (checked) => {
+              await postAdminKnowledgeUpdate({
+                ...row.original,
+                id: row.original.id!,
+                enable: checked,
+              });
+              refetch();
+            }}
+          />
+        );
       },
     },
     {
       accessorKey: 'title',
-      header: '标题',
+      header: t('title'),
     },
     {
       accessorKey: 'category',
-      header: '分类',
+      header: t('category'),
     },
     {
       accessorKey: 'updated_at',
-      header: '更新时间',
-      cell: ({ row }) => formatDate(row.getValue('updated_at'), 'yyyy-MM-dd HH:mm:ss'),
+      header: t('updatedAt'),
+      cell: ({ row }) => format(row.getValue('updated_at'), 'yyyy-MM-dd HH:mm:ss'),
     },
     {
       id: 'actions',
       accessorKey: 'id',
-      header: () => <div className='text-right'>操作</div>,
+      header: () => <div className='text-right'>{t('actions')}</div>,
       cell: ({ row }) => {
         return (
           <div className='flex justify-end gap-2'>
-            <Button>编辑</Button>
+            <KnowledgeForm<API.Knowledge>
+              trigger={t('edit')}
+              title={t('editKnowledge')}
+              loading={loading}
+              initialValues={row.original}
+              onSubmit={async (values) => {
+                setLoading(true);
+                try {
+                  await postAdminKnowledgeUpdate({
+                    ...row.original,
+                    id: row.original.id!,
+                    ...values,
+                  });
+                  toast.success(t('updateSuccess'));
+                  refetch();
+                  setLoading(false);
+                  return true;
+                } catch (error) {
+                  setLoading(false);
+                  return false;
+                }
+              }}
+            />
             <DeleteButton
-              trigger='删除'
-              title='你确定要删除吗?'
-              description='删除后数据将无法恢复，请谨慎操作'
-              onConfirm={async () => {}}
-              onCancelText='取消'
-              onConfirmText='确认'
+              trigger={t('delete')}
+              title={t('confirmDelete')}
+              description={t('deleteDescription')}
+              onConfirm={async () => {
+                await postAdminKnowledgeOpenApiDelete({
+                  id: row.original.id!,
+                });
+                toast.success(t('deleteSuccess'));
+                refetch();
+              }}
+              onCancelText={t('cancel')}
+              onConfirmText={t('confirm')}
             />
           </div>
         );
@@ -56,25 +123,51 @@ export default function Page() {
     <DataTable
       header={
         <div className='flex items-center justify-between'>
-          <h1>文档列表</h1>
-          <NoticeForm
-            trigger='新建'
-            title='新建文档'
-            onSubmit={async () => {
-              return true;
+          <h1>{t('knowledgeList')}</h1>
+          <KnowledgeForm<API.Knowledge>
+            trigger={t('create')}
+            title={t('createKnowledge')}
+            loading={loading}
+            onSubmit={async (values) => {
+              setLoading(true);
+              try {
+                await postAdminKnowledgeCreate(values);
+                toast.success(t('createSuccess'));
+                refetch();
+                setLoading(false);
+                return true;
+              } catch (error) {
+                setLoading(false);
+                return false;
+              }
             }}
           />
         </div>
       }
       columns={columns}
-      data={[]}
+      data={data?.list || []}
       pagination={{
-        page: 1,
-        size: 0,
-        total: 0,
+        page: params.page,
+        size: params.size,
+        total: data?.total,
+        onChange: (page, size) => {
+          setParams({
+            ...params,
+            page,
+            size,
+          });
+        },
       }}
       operations={{
-        remove: async (rowSelection) => {},
+        remove: async (rowSelection) => {
+          rowSelection.forEach(async (element) => {
+            await postAdminKnowledgeOpenApiDelete({
+              id: element.id!,
+            });
+          });
+          toast.success(t('deleteSuccess'));
+          refetch();
+        },
       }}
     />
   );
